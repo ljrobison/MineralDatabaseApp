@@ -10,23 +10,18 @@ namespace MineralDatabase.App.ViewModels
 {
     public partial class InventoryViewModel : PropertyChangedBase
     {
-        List<Ingredient> _ingredientList = new List<Ingredient>();
-        MineralDBEntities db = new MineralDBEntities();
-
+        #region Constructor
         public InventoryViewModel()
         {
-            _ingredientList = GetAllIngredients();
+            IngredientList = GetAllIngredients();
+            SelectedIngredient = _ingredientList.FirstOrDefault();
         }
+        #endregion
 
-        public List<Ingredient> GetAllIngredients()
-        {
-            var IngredientList = db.Ingredients
-                        .Where(ingredient => ingredient.Id == ingredient.Id)
-                        .ToList();
+        #region Properties
+        MineralDBEntities db = new MineralDBEntities();
 
-            return IngredientList;
-        }
-
+        private List<Ingredient> _ingredientList;
         public List<Ingredient> IngredientList
         {
             get { return _ingredientList; }
@@ -36,5 +31,31 @@ namespace MineralDatabase.App.ViewModels
                 NotifyOfPropertyChange(() => IngredientList);
             }
         }
+
+        private Ingredient _selectedIngredient;
+        public Ingredient SelectedIngredient
+        {
+            get
+            {
+                return _selectedIngredient;
+            }
+            set
+            {
+                _selectedIngredient = value;
+                NotifyOfPropertyChange(() => SelectedIngredient);
+            }
+        }
+        #endregion
+
+        #region Methods
+        public List<Ingredient> GetAllIngredients()
+        {
+            var IngredientList = db.Ingredients
+                        .Where(ingredient => ingredient.Id == ingredient.Id)
+                        .ToList();
+
+            return IngredientList;
+        }
+        #endregion
     }
 }

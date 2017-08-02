@@ -1,4 +1,5 @@
 ﻿using MineralDatabase.App.Helpers;
+using MineralDatabase.App.Models;
 using MineralDatabase.App.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,12 @@ namespace MineralDatabase.App.Views
         public InventoryView()
         {
             InitializeComponent();
-            this.DataContext = new InventoryViewModel();
+            this.Loaded += InventoryView_Loaded;
+        }
+
+        void InventoryView_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext =  new InventoryViewModel();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -46,16 +52,6 @@ namespace MineralDatabase.App.Views
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void OnIngredientSlected(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

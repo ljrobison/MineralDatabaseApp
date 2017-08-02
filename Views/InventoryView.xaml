@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <ToolBarTray Grid.Row="0">
             <ToolBar>
-                <Button x:Name="btnNew" ToolTip="Add a new ngredient."  Click="btnNew_Click" >
+                <Button x:Name="btnNew" ToolTip="Add a new ingredient."  Click="btnNew_Click" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/icons/toolbar/new.png"/>
                         <TextBlock Margin="3,0,0,0"><Run Text="New"/></TextBlock>
@@ -62,9 +62,15 @@
                 <StackPanel Orientation="Vertical" Grid.Row="0">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="Ingredient Name" />
-                        <ComboBox Margin="0,0,0,3" ItemsSource="{Binding IngredientList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="OnIngredientSlected"/>
-                        <TextBlock Text="Manufacturer" />
-                        <ComboBox Margin="0,0,0,3"/>
+                        <ComboBox x:Name="ComboBoxIngredientName" Margin="0,0,0,3" 
+                                  ItemsSource="{Binding IngredientList}" 
+                                  DisplayMemberPath="Name" 
+                                  SelectedValuePath="Id"
+                                  SelectedItem="SelectedIngredient"
+                                  IsSynchronizedWithCurrentItem="True"/>
+                        <TextBlock Text="Manufacturer"/>
+                        <TextBox Margin="0,0,0,3"
+                                  Text="{Binding SelectedIngredient.Manufacturer}"/>
                     </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -82,7 +88,7 @@
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                         <TextBlock Text="Cost" VerticalAlignment="Center" Margin="0,0,5,0" />
-                                        <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5" />
+                                        <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5"/>
                                         <TextBlock Text="Volume" VerticalAlignment="Center" Margin="5,0,5,0"/>
                                         <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5"/>
                                     </StackPanel>
@@ -94,19 +100,24 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <TextBlock Text="Inventory amount" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                            <wpfToolkit:DecimalUpDown Width="80"  Value="0.00" />
+                            <wpfToolkit:DecimalUpDown Width="80"  Value="{Binding SelectedIngredient.InventoryAmount}" />
                             <TextBlock Text="Inventory alarm" VerticalAlignment="Center" Margin="5,0,5,0"/>
-                            <wpfToolkit:DecimalUpDown Width="80"  Value="0.00"/>
+                            <wpfToolkit:DecimalUpDown Width="80"  Value="{Binding SelectedIngredient.InventoryThreshold}"/>
                         </StackPanel>
                         <DockPanel>
                             <TextBlock Text="Storage location" VerticalAlignment="Center" Margin="0,5,12,0" />
-                            <TextBox Text="" Margin="0,5,0,0"/>
+                            <TextBox Text="{Binding SelectedIngredient.Location}" Margin="0,5,0,0"/>
                         </DockPanel>
                     </StackPanel>
                 </StackPanel>
                 <DockPanel Grid.Row="2">
                     <TextBlock Text="Notes" Margin="0,3,5,0" />
-                    <RichTextBox Margin="0,3,0,0" />
+                    <wpfToolkit:RichTextBox Text="{Binding SelectedIngredient.Notes}" Margin="0,3,0,0">
+                        <wpfToolkit:RichTextBox.TextFormatter>
+                            <wpfToolkit:RtfFormatter />
+                        </wpfToolkit:RichTextBox.TextFormatter>
+                    </wpfToolkit:RichTextBox>
+                    
                 </DockPanel>
             </Grid>
         </Border>
