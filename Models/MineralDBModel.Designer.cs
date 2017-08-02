@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Lee\Dropbox\Programming\Repos\MineralDatabase\MineralDatabase\MineralDatabase.App\Models\MineralDBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Lee\Dropbox\Programming\Repos\MineralDatabase\MineralDatabaseApp\Models\MineralDBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

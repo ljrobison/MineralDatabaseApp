@@ -1,4 +1,5 @@
 ﻿using MineralDatabase.App.Helpers;
+using MineralDatabase.App.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,7 @@ namespace MineralDatabase.App.Views
         public InventoryView()
         {
             InitializeComponent();
-            DataContext = this;
+            this.DataContext = new InventoryViewModel();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)

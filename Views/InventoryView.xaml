@@ -62,7 +62,7 @@
                 <StackPanel Orientation="Vertical" Grid.Row="0">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="Ingredient Name" />
-                        <ComboBox Margin="0,0,0,3" ItemsSource="{Binding Ingredients}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="OnIngredientSlected"/>
+                        <ComboBox Margin="0,0,0,3" ItemsSource="{Binding IngredientList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="OnIngredientSlected"/>
                         <TextBlock Text="Manufacturer" />
                         <ComboBox Margin="0,0,0,3"/>
                     </StackPanel>

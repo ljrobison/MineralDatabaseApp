@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a6c8b226e444a60891f566de08b4915" Name="Diagram1">
+      <Diagram DiagramId="e0d885fc5a974716b19320e3d9225258" Name="Diagram1">
         <EntityTypeShape EntityType="MineralDBModel.Ingredient" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
