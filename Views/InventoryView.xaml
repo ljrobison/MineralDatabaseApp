@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:local="clr-namespace:MineralDatabase.App.Helpers"
         mc:Ignorable="d"
         Title="Inventory" Height="400" Width="440">
+    <Window.Resources>
+        <local:IngredientTypeConverter x:Key="IngredientTypeConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -78,10 +82,15 @@
                             <ColumnDefinition Width="3*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="Type" Margin="0,0,0,3" />
-                            <CheckBox Content ="Base" Margin="0,0,0,3"/>
-                            <CheckBox Content ="Oxide" Margin="0,0,0,3"/>
-                            <CheckBox Content="Other" Margin="0,0,0,3"/>
+                            <TextBlock Text="Type" Margin="0,0,0,3"/>
+                            <CheckBox Content="Base" Margin="0,0,0,3" 
+                                      IsChecked="{Binding SelectedIngredient.Type, Converter={StaticResource IngredientTypeConverter},ConverterParameter=0}"/>
+                            <CheckBox Content="Oxide" Margin="0,0,0,3" 
+                                      IsChecked="{Binding SelectedIngredient.Type, Converter={StaticResource IngredientTypeConverter},ConverterParameter=1}"/>
+                            <CheckBox Content="Additive" Margin="0,0,0,3" 
+                                      IsChecked="{Binding SelectedIngredient.Type, Converter={StaticResource IngredientTypeConverter},ConverterParameter=2}"/>
+                            <CheckBox Content="Other" Margin="0,0,0,3" 
+                                      IsChecked="{Binding SelectedIngredient.Type, Converter={StaticResource IngredientTypeConverter},ConverterParameter=3}"/>
                         </StackPanel>
                         <GroupBox Grid.Column="1" Header="Cost">
                             <Border Margin="5">

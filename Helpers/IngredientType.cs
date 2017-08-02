@@ -9,8 +9,8 @@ namespace MineralDatabase.App.Helpers
     public enum IngredientType
     {
         Base = 1,
-        Oxide,
-        Additive,
-        Other
+        Oxide = 2,
+        Additive = 3,
+        Other = 4
     }
 }

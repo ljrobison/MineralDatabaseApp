@@ -127,6 +127,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
     <Compile Include="Helpers\IngredientType.cs" />
+    <Compile Include="Helpers\IngredientTypeConverter.cs" />
     <Compile Include="Models\Ingredient.cs">
       <DependentUpon>MineralDBModel.tt</DependentUpon>
     </Compile>
