@@ -1,0 +1,151 @@
+﻿<Window x:Class="MineralDatabase.App.Views.OptionsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MineralDatabase.App.Views"
+        xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        mc:Ignorable="d"
+        Title="Options" Height="325" Width="650">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TabControl Grid.Row="0">
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="General" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Border Margin="10">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <TextBlock Text="Default directory" />
+                                    <TextBox Width="200" Margin="10,0,5,0"/>
+                                    <Button Content="Browse..." />
+                                </StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <GroupBox Grid.Column="0" Header="Default unit">
+                                        <StackPanel Orientation="Vertical">
+                                            <RadioButton Content="g" Margin="0,2,0,2" IsChecked="True" />
+                                            <RadioButton Content="oz" Margin="0,0,0,2" />
+                                            <RadioButton Content="Tbsp" Margin="0,0,0,2" />
+                                            <RadioButton Content="None" Margin="0,0,0,2" />
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <GroupBox Header="Default sort order for recipes" Grid.Column="1" Margin="20,0,0,0">
+                                        <StackPanel Orientation="Vertical">
+                                            <RadioButton Content="By name" Margin="0,2,0,2" IsChecked="True" />
+                                            <RadioButton Content="By rating" Margin="0,0,0,2" />
+                                            <RadioButton Content="By creation date" Margin="0,0,0,2" />
+                                            <RadioButton Content="By last made date" Margin="0,0,0,2" />
+                                        </StackPanel>
+                                    </GroupBox>
+                                </Grid>
+                                <CheckBox Content="Check for updates when started" Margin="0,15,0,2" IsChecked="True" />
+                                <CheckBox Content="Prompt for new ingredient name on manage ingredients window" Margin="0,0,0,2" IsChecked="True"/>
+                                <CheckBox Content="Prompt for new manufacturer name on edit manufacturer window" Margin="0,0,0,2" IsChecked="True" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Recipe Defaults" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Border Margin="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Orientation="Vertical">
+                                    <GroupBox>
+                                        <Border Margin="5">
+                                            <StackPanel Orientation="Vertical">
+                                            </StackPanel>
+                                        </Border>
+                                    </GroupBox>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ingredient Defaults" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Border Margin="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <GroupBox Header="Default values for new ingredients">
+                                    <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Cost" Width="125"/>
+                                            <wpfToolkit:DecimalUpDown Width="80" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                            <TextBlock Text="Default percentage" Width="125"/>
+                                            <wpfToolkit:DecimalUpDown Width="80" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Print Defaults" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Backup Options" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Auto Increment" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Mouse Wheel" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <Button Content="Save Defaults" Padding="2" />
+                    <Button Content="Cancel" Padding="2" Margin="20,0,0,0" Click="Button_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,114 @@
+﻿<Window x:Class="MineralDatabase.App.Views.InventoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        mc:Ignorable="d"
+        Title="Inventory" Height="400" Width="440">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button x:Name="btnNew" ToolTip="Add a new ngredient."  Click="btnNew_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/new.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="New"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnRename" ToolTip="Rename current ingredient." Click="btnRename_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/rename.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Rename"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDelete" ToolTip="Deletes current Ingredient." >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/delete.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Delete"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator />
+                <Button x:Name="btnManufacturers" ToolTip="Displays manufacturer info." >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/manufacturers.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Manufacturers"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator />
+                <Button x:Name="btnSave" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/save.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Save"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnExit" ToolTip="Exit ingredients manager." Click="btnExit_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/exit.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Exit"/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Border Grid.Row="1" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Row="0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Ingredient Name" />
+                        <ComboBox Margin="0,0,0,3" ItemsSource="{Binding Ingredients}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="OnIngredientSlected"/>
+                        <TextBlock Text="Manufacturer" />
+                        <ComboBox Margin="0,0,0,3"/>
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Type" Margin="0,0,0,3" />
+                            <CheckBox Content ="Base" Margin="0,0,0,3"/>
+                            <CheckBox Content ="Oxide" Margin="0,0,0,3"/>
+                            <CheckBox Content="Other" Margin="0,0,0,3"/>
+                        </StackPanel>
+                        <GroupBox Grid.Column="1" Header="Cost">
+                            <Border Margin="5">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="Cost" VerticalAlignment="Center" Margin="0,0,5,0" />
+                                        <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5" />
+                                        <TextBlock Text="Volume" VerticalAlignment="Center" Margin="5,0,5,0"/>
+                                        <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5"/>
+                                    </StackPanel>
+                                    <Button Content="Add to Inventory" Width="100"/>
+                                </StackPanel>
+                            </Border>
+                        </GroupBox>
+                    </Grid>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <TextBlock Text="Inventory amount" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <wpfToolkit:DecimalUpDown Width="80"  Value="0.00" />
+                            <TextBlock Text="Inventory alarm" VerticalAlignment="Center" Margin="5,0,5,0"/>
+                            <wpfToolkit:DecimalUpDown Width="80"  Value="0.00"/>
+                        </StackPanel>
+                        <DockPanel>
+                            <TextBlock Text="Storage location" VerticalAlignment="Center" Margin="0,5,12,0" />
+                            <TextBox Text="" Margin="0,5,0,0"/>
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
+                <DockPanel Grid.Row="2">
+                    <TextBlock Text="Notes" Margin="0,3,5,0" />
+                    <RichTextBox Margin="0,3,0,0" />
+                </DockPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,60 @@
+﻿using MineralDatabase.App.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace MineralDatabase.App.Views
+{
+    /// <summary>
+    /// Interaction logic for WindowInventory.xaml
+    /// </summary>
+    public partial class InventoryView
+    {
+        public InventoryView()
+        {
+            InitializeComponent();
+            DataContext = this;
+        }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRename_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void OnIngredientSlected(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
+}
