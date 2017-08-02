@@ -2,6 +2,8 @@
 using MineralDatabase.App.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,25 @@ namespace MineralDatabase.App
         public Bootstrapper()
         {
             Initialize();
+
+            string _appDataFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var _fileName = Path.Combine(_appDataFilePath, "MineralDB.db");
+
+            if (!System.IO.File.Exists(_fileName))
+            {
+                Console.WriteLine("Just entered to create Sync DB");
+
+                SQLiteConnection.CreateFile(_fileName);
+
+                using (var sqlite2 = new SQLiteConnection("Data Source=" + _fileName))
+                {
+                    sqlite2.Open();
+                    //string sql = "create table highscores (Id t)";
+                    string sql = "CREATE TABLE Ingredients (Id long, Name text, DefaultPercentage numeric not null)";
+                    SQLiteCommand command = new SQLiteCommand(sql, sqlite2);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         protected override void Configure()
