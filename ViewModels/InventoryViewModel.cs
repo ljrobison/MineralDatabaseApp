@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using MineralDatabase.App.Models;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
 
 namespace MineralDatabase.App.ViewModels
 {
@@ -13,16 +15,15 @@ namespace MineralDatabase.App.ViewModels
         #region Constructor
         public InventoryViewModel()
         {
-            IngredientList = GetAllIngredients();
-            SelectedIngredient = _ingredientList.FirstOrDefault();
+            GetAllIngredients();
         }
         #endregion
 
         #region Properties
         MineralDBEntities db = new MineralDBEntities();
 
-        private List<Ingredient> _ingredientList;
-        public List<Ingredient> IngredientList
+        private ObservableCollection<Ingredient> _ingredientList;
+        public ObservableCollection<Ingredient> IngredientList
         {
             get { return _ingredientList; }
             set
@@ -48,13 +49,10 @@ namespace MineralDatabase.App.ViewModels
         #endregion
 
         #region Methods
-        public List<Ingredient> GetAllIngredients()
+        public void GetAllIngredients()
         {
-            var IngredientList = db.Ingredients
-                        .Where(ingredient => ingredient.Id == ingredient.Id)
-                        .ToList();
-
-            return IngredientList;
+            db.Ingredients.Load();
+            IngredientList = db.Ingredients.Local;
         }
         #endregion
     }

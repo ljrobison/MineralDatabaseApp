@@ -66,7 +66,7 @@
                                   ItemsSource="{Binding IngredientList}" 
                                   DisplayMemberPath="Name" 
                                   SelectedValuePath="Id"
-                                  SelectedItem="SelectedIngredient"
+                                  SelectedItem="{Binding SelectedIngredient}"
                                   IsSynchronizedWithCurrentItem="True"/>
                         <TextBlock Text="Manufacturer"/>
                         <TextBox Margin="0,0,0,3"
