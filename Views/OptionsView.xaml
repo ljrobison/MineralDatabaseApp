@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MineralDatabase.App.Views"
         xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-        xmlns:customControls="clr-namespace:MineralDatabase.App.CustomControls"
         mc:Ignorable="d"
         Title="Options" Height="325" Width="650">
     <Grid>

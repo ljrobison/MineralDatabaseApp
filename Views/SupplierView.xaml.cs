@@ -23,5 +23,25 @@ namespace MineralDatabase.App.Views
         {
             InitializeComponent();
         }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRename_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
