@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MineralDBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Lee\Dropbox\Programming\Repos\MineralDatabase\MineralDB.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MineralDBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Lee\Dropbox\Programming\Repos\MineralDatabase\MineralDB.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ingredients">
           <Key>
             <PropertyRef Name="Id" />
@@ -25,11 +25,27 @@
           <Property Name="Vendor" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="Location" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="PostalCode" Type="integer" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="MineralDBModelStoreContainer">
           <EntitySet Name="Ingredients" EntityType="Self.Ingredients" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MineralDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -55,7 +71,24 @@
         </EntityType>
         <EntityContainer Name="MineralDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+          <EntitySet Name="Suppliers" EntityType="MineralDBModel.Supplier" />
         </EntityContainer>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="Int64" Nullable="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -80,6 +113,23 @@
                 <ScalarProperty Name="Activated" ColumnName="Activated" />
                 <ScalarProperty Name="Vendor" ColumnName="Vendor" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="MineralDBModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

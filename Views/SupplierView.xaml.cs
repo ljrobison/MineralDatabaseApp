@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MineralDatabase.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace MineralDatabase.App.Views
         public SupplierView()
         {
             InitializeComponent();
+            this.Loaded += SupplierView_Loaded;
+        }
+
+        private void SupplierView_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new SupplierViewModel();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)

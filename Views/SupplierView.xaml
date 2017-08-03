@@ -56,23 +56,26 @@
             <GroupBox Header="Supplier">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <StackPanel.Resources>
                             <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Margin" Value="0,5,0,0"/>
+                                <Setter Property="Margin" Value="0,5,5,0"/>
+                                <Setter Property="Padding" Value="2"/>
                             </Style>
                         </StackPanel.Resources>
                         <TextBlock Text="Company Name" Height="22"/>
                         <TextBlock Text="Contact Name" Height="22"/>
-                        <TextBlock Text="Address" Height="100"/>
+                        <TextBlock Text="Street Address" Height="22"/>
                         <TextBlock Text="City" Height="22" />
                         <TextBlock Text="State" Height="22"/>
                         <TextBlock Text="Postal Code" Height="22"/>
                         <TextBlock Text="Country" Height="22"/>
+                        <TextBlock Text="Phone Number" Height="22"/>
                         <TextBlock Text="Website" Height="22"/>
+                        <TextBlock Text="Email" Height="22"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,0,0,0">
                         <StackPanel.Resources>
@@ -83,14 +86,30 @@
                                 <Setter Property="Margin" Value="{StaticResource cbMargin}"/>
                             </Style>
                         </StackPanel.Resources>
-                        <ComboBox Height="22"/>
-                        <TextBox Height="22"/>
-                        <TextBox Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
-                        <TextBox Height="22"/>
-                        <ComboBox Height="22"/>
-                        <TextBox Height="22"/>
-                        <ComboBox Height="22"/>
-                        <TextBox Height="22"/>
+                        <ComboBox Height="22"
+                                  ItemsSource="{Binding SupplierList}" 
+                                  DisplayMemberPath="CompanyName" 
+                                  SelectedValuePath="Id"
+                                  SelectedItem="{Binding SelectedSupplier}"
+                                  IsSynchronizedWithCurrentItem="True"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.ContactName}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.StreetAddress}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.City}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.State}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.PostalCode}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.Country}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.PhoneNumber}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.Website}"/>
+                        <TextBox Height="22"
+                                 Text="{Binding SelectedSupplier.Email}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>

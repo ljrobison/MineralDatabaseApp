@@ -26,5 +26,6 @@ namespace MineralDatabase.App.Models
         }
     
         public virtual DbSet<Ingredient> Ingredients { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
     }
 }
