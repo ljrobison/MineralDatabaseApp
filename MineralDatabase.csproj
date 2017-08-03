@@ -188,6 +188,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MineralDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="MineralDB.db" />
     <None Include="Models\MineralDBModel.edmx.diagram">
       <DependentUpon>MineralDBModel.edmx</DependentUpon>
     </None>
