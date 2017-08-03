@@ -73,8 +73,11 @@
                                   SelectedItem="{Binding SelectedIngredient}"
                                   IsSynchronizedWithCurrentItem="True"/>
                         <TextBlock Text="Manufacturer"/>
-                        <TextBox Margin="0,0,0,3"
-                                  Text="{Binding SelectedIngredient.Manufacturer}"/>
+                        <ComboBox Margin="0,0,0,3"
+                                  ItemsSource="{Binding SupplierList}"
+                                  DisplayMemberPath="CompanyName"
+                                  SelectedValue="Id"
+                                  SelectedItem="{Binding SelectedIngredient.Manufacturer}"/>
                     </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>

@@ -16,11 +16,34 @@ namespace MineralDatabase.App.ViewModels
         public InventoryViewModel()
         {
             GetAllIngredients();
+            GetAllSuppliers();
         }
         #endregion
 
         #region Properties
         MineralDBEntities db = new MineralDBEntities();
+
+        private ObservableCollection<Supplier> _supplierList;
+        public ObservableCollection<Supplier> SupplierList
+        {
+            get { return _supplierList; }
+            set
+            {
+                _supplierList = value;
+                NotifyOfPropertyChange(() => SupplierList);
+            }
+        }
+
+        private Supplier _selectedSupplier;
+        public Supplier SelectedSupplier
+        {
+            get { return _selectedSupplier; }
+            set
+            {
+                _selectedSupplier = value;
+                NotifyOfPropertyChange(() => SelectedSupplier);
+            }
+        }
 
         private ObservableCollection<Ingredient> _ingredientList;
         public ObservableCollection<Ingredient> IngredientList
@@ -53,6 +76,12 @@ namespace MineralDatabase.App.ViewModels
         {
             db.Ingredients.Load();
             IngredientList = db.Ingredients.Local;
+        }
+
+        public void GetAllSuppliers()
+        {
+            db.Suppliers.Load();
+            SupplierList = db.Suppliers.Local;
         }
         #endregion
     }
