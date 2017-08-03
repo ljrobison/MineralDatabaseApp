@@ -126,7 +126,6 @@
                             <wpfToolkit:RtfFormatter />
                         </wpfToolkit:RichTextBox.TextFormatter>
                     </wpfToolkit:RichTextBox>
-                    
                 </DockPanel>
             </Grid>
         </Border>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MineralDatabase.App.Views"
         xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:customControls="clr-namespace:MineralDatabase.App.CustomControls"
         mc:Ignorable="d"
         Title="Options" Height="325" Width="650">
     <Grid>
@@ -71,10 +72,8 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0" Orientation="Vertical">
-                                    <GroupBox>
+                                    <GroupBox Width="200">
                                         <Border Margin="5">
-                                            <StackPanel Orientation="Vertical">
-                                            </StackPanel>
                                         </Border>
                                     </GroupBox>
                                 </StackPanel>

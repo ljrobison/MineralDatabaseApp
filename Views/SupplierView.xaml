@@ -1,0 +1,99 @@
+﻿<Window x:Class="MineralDatabase.App.Views.SupplierView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MineralDatabase.App.Views"
+        mc:Ignorable="d"
+        Title="SupplierView" Height="425" Width="350">
+    <Window.Resources>
+        <Thickness x:Key="tbMargin">0,5,0,0</Thickness>
+        <Thickness x:Key="cbMargin">0,5,0,0</Thickness>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button x:Name="btnNew" ToolTip="Add a new supplier."  Click="btnNew_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/new.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="New"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnRename" ToolTip="Rename current supplier." Click="btnRename_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/rename.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Rename"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDelete" ToolTip="Delete current supplier." >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/delete.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Delete"/></TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Separator />
+                <Button x:Name="btnSave" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/save.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Save"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnExit" ToolTip="Exit supplier manager." Click="btnExit_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/icons/toolbar/exit.png"/>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Exit"/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Border Margin="10" Grid.Row="1">
+            <GroupBox Header="Supplier">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="0,5,0,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="Company Name" Height="22"/>
+                        <TextBlock Text="Contact Name" Height="22"/>
+                        <TextBlock Text="Address" Height="100"/>
+                        <TextBlock Text="City" Height="22" />
+                        <TextBlock Text="State" Height="22"/>
+                        <TextBlock Text="Postal Code" Height="22"/>
+                        <TextBlock Text="Country" Height="22"/>
+                        <TextBlock Text="Website" Height="22"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,0,0,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Margin" Value="{StaticResource tbMargin}"/>
+                            </Style>
+                            <Style TargetType="{x:Type ComboBox}">
+                                <Setter Property="Margin" Value="{StaticResource cbMargin}"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <ComboBox Height="22"/>
+                        <TextBox Height="22"/>
+                        <TextBox Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        <TextBox Height="22"/>
+                        <ComboBox Height="22"/>
+                        <TextBox Height="22"/>
+                        <ComboBox Height="22"/>
+                        <TextBox Height="22"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </Border>
+    </Grid>
+</Window>
