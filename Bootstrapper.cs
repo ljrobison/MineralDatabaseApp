@@ -17,6 +17,10 @@ namespace MineralDatabase.App
 
         public Bootstrapper()
         {
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
             Initialize();
         }
 
