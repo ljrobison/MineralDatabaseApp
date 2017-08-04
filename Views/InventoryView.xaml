@@ -36,10 +36,10 @@
                     </StackPanel>
                 </Button>
                 <Separator />
-                <Button x:Name="btnManufacturers" ToolTip="Displays manufacturer info." Click="btnManufacturers_Click" >
+                <Button x:Name="btnManufacturers" ToolTip="Displays supplier info." Click="btnManufacturers_Click" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/icons/toolbar/manufacturers.png"/>
-                        <TextBlock Margin="3,0,0,0"><Run Text="Manufacturers"/></TextBlock>
+                        <TextBlock Margin="3,0,0,0"><Run Text="Suppliers"/></TextBlock>
                     </StackPanel>
                 </Button>
                 <Separator />
