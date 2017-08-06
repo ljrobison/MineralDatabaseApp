@@ -17,6 +17,7 @@ namespace MineralDatabase.App.ViewModels
         {
             GetAllIngredients();
             GetAllSuppliers();
+            GetSuppliersNames();
         }
         #endregion
 
@@ -69,6 +70,18 @@ namespace MineralDatabase.App.ViewModels
                 NotifyOfPropertyChange(() => SelectedIngredient);
             }
         }
+
+        private List<string> _supplierNameList;
+        public List<string> SupplierNameList
+        {
+            get { return _supplierNameList; }
+            set
+            {
+                _supplierNameList = value;
+                NotifyOfPropertyChange(() => SupplierNameList);
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -82,6 +95,13 @@ namespace MineralDatabase.App.ViewModels
         {
             db.Suppliers.Load();
             SupplierList = db.Suppliers.Local;
+        }
+
+        public void GetSuppliersNames()
+        {
+            db.Suppliers.Load();
+            var result = db.Suppliers.Select(x => x.CompanyName).ToList();
+            SupplierNameList = result;
         }
         #endregion
     }

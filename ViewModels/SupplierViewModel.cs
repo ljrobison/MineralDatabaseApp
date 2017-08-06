@@ -56,6 +56,7 @@ namespace MineralDatabase.App.ViewModels
             SupplierList = db.Suppliers.Local;
         }
 
+
         #endregion
     }
 }
