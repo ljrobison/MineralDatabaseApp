@@ -16,19 +16,19 @@ using System.Windows.Shapes;
 namespace MineralDatabase.App.Views
 {
     /// <summary>
-    /// Interaction logic for SupplierView.xaml
+    /// Interaction logic for ManufacturerView.xaml
     /// </summary>
-    public partial class SupplierView : Window
+    public partial class ManufacturerView : Window
     {
-        public SupplierView()
+        public ManufacturerView()
         {
             InitializeComponent();
-            this.Loaded += SupplierView_Loaded;
+            this.Loaded += ManufacturerView_Loaded;
         }
 
-        private void SupplierView_Loaded(object sender, RoutedEventArgs e)
+        private void ManufacturerView_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new SupplierViewModel();
+            this.DataContext = new ManufacturerViewModel();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
