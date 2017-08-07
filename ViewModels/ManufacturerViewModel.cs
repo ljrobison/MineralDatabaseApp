@@ -10,6 +10,9 @@ using System.Data.Entity;
 
 namespace MineralDatabase.App.ViewModels
 {
+    /// <summary>
+    /// Interaction logic for ManufacturerView.xaml
+    /// </summary>
     public partial class ManufacturerViewModel : PropertyChangedBase
     {
         public ManufacturerViewModel()
