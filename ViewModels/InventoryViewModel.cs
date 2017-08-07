@@ -19,33 +19,33 @@ namespace MineralDatabase.App.ViewModels
         public InventoryViewModel()
         {
             GetAllIngredients();
-            GetAllManufacturers();
-            GetManufacturersNames();
+            GetAllSuppliers();
+            GetSuppliersNames();
         }
         #endregion
 
         #region Properties
         MineralDBEntities db = new MineralDBEntities();
 
-        private ObservableCollection<Manufacturer> _manufacturerList;
-        public ObservableCollection<Manufacturer> ManufacturerList
+        private ObservableCollection<Manufacturer> _supplierList;
+        public ObservableCollection<Manufacturer> SupplierList
         {
-            get { return _manufacturerList; }
+            get { return _supplierList; }
             set
             {
-                _manufacturerList = value;
-                NotifyOfPropertyChange(() => ManufacturerList);
+                _supplierList = value;
+                NotifyOfPropertyChange(() => SupplierList);
             }
         }
 
-        private Manufacturer _selectedManufacturer;
-        public Manufacturer SelectedManufacturer
+        private Manufacturer _selectedSupplier;
+        public Manufacturer SelectedSupplier
         {
-            get { return _selectedManufacturer; }
+            get { return _selectedSupplier; }
             set
             {
-                _selectedManufacturer = value;
-                NotifyOfPropertyChange(() => SelectedManufacturer);
+                _selectedSupplier = value;
+                NotifyOfPropertyChange(() => SelectedSupplier);
             }
         }
 
@@ -74,14 +74,14 @@ namespace MineralDatabase.App.ViewModels
             }
         }
 
-        private List<string> _manufacturerNameList;
-        public List<string> ManufacturerNameList
+        private List<string> _supplierNameList;
+        public List<string> SupplierNameList
         {
-            get { return _manufacturerNameList; }
+            get { return _supplierNameList; }
             set
             {
-                _manufacturerNameList = value;
-                NotifyOfPropertyChange(() => ManufacturerNameList);
+                _supplierNameList = value;
+                NotifyOfPropertyChange(() => SupplierNameList);
             }
         }
 
@@ -94,17 +94,17 @@ namespace MineralDatabase.App.ViewModels
             IngredientList = db.Ingredients.Local;
         }
 
-        public void GetAllManufacturers()
+        public void GetAllSuppliers()
         {
             db.Manufacturers.Load();
-            ManufacturerList = db.Manufacturers.Local;
+            SupplierList = db.Manufacturers.Local;
         }
 
-        public void GetManufacturersNames()
+        public void GetSuppliersNames()
         {
             db.Manufacturers.Load();
             var result = db.Manufacturers.Select(x => x.CompanyName).ToList();
-            ManufacturerNameList = result;
+            SupplierNameList = result;
         }
 
         private void SaveChanges()

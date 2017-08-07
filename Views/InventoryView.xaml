@@ -74,7 +74,7 @@
                                   IsSynchronizedWithCurrentItem="True"/>
                         <TextBlock Text="Manufacturer"/>
                         <ComboBox Margin="0,0,0,3"
-                                  ItemsSource="{Binding ManufacturerNameList}"
+                                  ItemsSource="{Binding SupplierNameList}"
                                   SelectedItem="{Binding SelectedIngredient.Manufacturer}"/>
                         <!--  SelectedValue="Id"/>
                         SelectedItem=""/> --> 

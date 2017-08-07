@@ -57,7 +57,7 @@ namespace MineralDatabase.App.Views
 
         private void btnManufacturers_Click(object sender, RoutedEventArgs e)
         {
-            DialogHelper.ShowDialog<ManufacturerViewModel>();
+            DialogHelper.ShowDialog<SupplierViewModel>();
         }
     }
 }
