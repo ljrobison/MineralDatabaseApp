@@ -7,6 +7,7 @@ using Caliburn.Micro;
 using MineralDatabase.App.Models;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace MineralDatabase.App.ViewModels
 {
@@ -59,7 +60,7 @@ namespace MineralDatabase.App.ViewModels
 
         private Ingredient _selectedIngredient;
         public Ingredient SelectedIngredient
-        { 
+        {
             get
             {
                 return _selectedIngredient;
@@ -107,45 +108,19 @@ namespace MineralDatabase.App.ViewModels
             SupplierNameList = result;
         }
 
-        public void SaveAllChanges()
+        public void SaveAllChanges(Ingredient _i)
         {
-            var result = db.Ingredients.SingleOrDefault(b => b.Name == SelectedIngredient.Name);
-            if (result != null)
+
+            if (_i.Id == 0)
             {
-                result = SelectedIngredient;
-                db.SaveChanges();
+                db.Ingredients.Add(_i);
             }
             else
             {
-                Ingredient i = new Ingredient();
-                i = SelectedIngredient;
-
-                if (i.Name != null || i.Name != String.Empty)
-                {
-                    db.Ingredients.Add(i);
-                    try
-                    {
-                        db.SaveChanges();
-                    }
-                    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-                    {
-                        Exception raise = dbEx;
-                        foreach (var validationErrors in dbEx.EntityValidationErrors)
-                        {
-                            foreach (var validationError in validationErrors.ValidationErrors)
-                            {
-                                string message = string.Format("{0}:{1}",
-                                    validationErrors.Entry.Entity.ToString(),
-                                    validationError.ErrorMessage);
-                                // raise a new exception nesting
-                                // the current instance as InnerException
-                                raise = new InvalidOperationException(message, raise);
-                            }
-                        }
-                        throw raise;
-                    }
-                }
+                db.Ingredients.AddOrUpdate(_i);
             }
+
+            db.SaveChanges();
         }
     }
     #endregion

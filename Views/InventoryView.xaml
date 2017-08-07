@@ -6,7 +6,9 @@
         xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:MineralDatabase.App.Helpers"
         mc:Ignorable="d"
-        Title="Inventory" Height="400" Width="440">
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:i="clr-namespace:System.Windows.Interactivity"
+    Title="Inventory" Height="400" Width="440">
     <Window.Resources>
         <local:IngredientTypeConverter x:Key="IngredientTypeConverter"/>
     </Window.Resources>
@@ -43,7 +45,7 @@
                     </StackPanel>
                 </Button>
                 <Separator />
-                <Button x:Name="SaveAllChanges" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
+                <Button cal:Message.Attach="[Event Click] = [Action SaveAllChanges(ComboBoxIngredientName.SelectedItem)]" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/icons/toolbar/save.png"/>
                         <TextBlock Margin="3,0,0,0"><Run Text="Save"/></TextBlock>

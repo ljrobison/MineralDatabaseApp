@@ -137,6 +137,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MineralDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EventAgs.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\OptionsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
