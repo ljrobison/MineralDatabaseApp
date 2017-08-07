@@ -66,14 +66,14 @@
                 <StackPanel Orientation="Vertical" Grid.Row="0">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="Ingredient Name" />
-                        <ComboBox x:Name="ComboBoxIngredientName" Margin="0,0,0,3" IsEditable="False"
+                        <ComboBox x:Name="ComboBoxIngredientName" Margin="0,0,0,3" 
                                   ItemsSource="{Binding IngredientList}" 
                                   DisplayMemberPath="Name" 
                                   SelectedValuePath="Id"
                                   SelectedItem="{Binding SelectedIngredient}"
                                   IsSynchronizedWithCurrentItem="True"/>
                         <TextBlock Text="Manufacturer"/>
-                        <ComboBox Margin="0,0,0,3" IsEditable="False"
+                        <ComboBox Margin="0,0,0,3"
                                   ItemsSource="{Binding SupplierNameList}"
                                   SelectedItem="{Binding SelectedIngredient.Manufacturer}"/>
                         <!--  SelectedValue="Id"/>
