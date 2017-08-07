@@ -2,11 +2,6 @@
 using MineralDatabase.App.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace MineralDatabase.App
