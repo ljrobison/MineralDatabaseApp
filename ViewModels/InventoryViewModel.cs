@@ -10,9 +10,6 @@ using System.Data.Entity;
 
 namespace MineralDatabase.App.ViewModels
 {
-    /// <summary>
-    /// Interaction logic for InventoryView.xaml
-    /// </summary>
     public partial class InventoryViewModel : PropertyChangedBase
     {
         #region Constructor
@@ -105,11 +102,6 @@ namespace MineralDatabase.App.ViewModels
             db.Manufacturers.Load();
             var result = db.Manufacturers.Select(x => x.CompanyName).ToList();
             SupplierNameList = result;
-        }
-
-        private void SaveChanges()
-        {
-            //TODO: Figure out how to save changes to SelectedIngredient binding.
         }
         #endregion
     }
