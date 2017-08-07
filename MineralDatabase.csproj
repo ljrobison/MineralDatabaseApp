@@ -220,7 +220,6 @@
     <Resource Include="Icons\toolbar\rename.png" />
     <Resource Include="Icons\toolbar\save.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\MineralDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

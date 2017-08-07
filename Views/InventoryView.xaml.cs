@@ -31,8 +31,7 @@ namespace MineralDatabase.App.Views
 
         void InventoryView_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext =  new InventoryViewModel();
-            ComboBoxIngredientName.SelectedIndex = 0;
+            this.DataContext = new InventoryViewModel();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)

@@ -59,15 +59,18 @@ namespace MineralDatabase.App.ViewModels
 
         private Ingredient _selectedIngredient;
         public Ingredient SelectedIngredient
-        {
+        { 
             get
             {
                 return _selectedIngredient;
             }
             set
             {
-                _selectedIngredient = value;
-                NotifyOfPropertyChange(() => SelectedIngredient);
+                if (_selectedIngredient != value)
+                {
+                    _selectedIngredient = value;
+                    NotifyOfPropertyChange(() => SelectedIngredient);
+                }
             }
         }
 
@@ -106,47 +109,44 @@ namespace MineralDatabase.App.ViewModels
 
         public void SaveAllChanges()
         {
-            using (var _db = new MineralDBEntities())
+            var result = db.Ingredients.SingleOrDefault(b => b.Name == SelectedIngredient.Name);
+            if (result != null)
             {
-                var result = _db.Ingredients.SingleOrDefault(b => b.Name == SelectedIngredient.Name);
-                if (result != null)
-                {
-                    result = SelectedIngredient;
-                    db.SaveChanges();
-                }
-                else
-                {
-                    Ingredient i = new Ingredient();
-                    i = SelectedIngredient;
+                result = SelectedIngredient;
+                db.SaveChanges();
+            }
+            else
+            {
+                Ingredient i = new Ingredient();
+                i = SelectedIngredient;
 
-                    if (i.Name != null || i.Name != String.Empty)
+                if (i.Name != null || i.Name != String.Empty)
+                {
+                    db.Ingredients.Add(i);
+                    try
                     {
-                        db.Ingredients.Add(i);
-                        try
+                        db.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                    {
+                        Exception raise = dbEx;
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
                         {
-                            db.SaveChanges();
-                        }
-                        catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-                        {
-                            Exception raise = dbEx;
-                            foreach (var validationErrors in dbEx.EntityValidationErrors)
+                            foreach (var validationError in validationErrors.ValidationErrors)
                             {
-                                foreach (var validationError in validationErrors.ValidationErrors)
-                                {
-                                    string message = string.Format("{0}:{1}",
-                                        validationErrors.Entry.Entity.ToString(),
-                                        validationError.ErrorMessage);
-                                    // raise a new exception nesting
-                                    // the current instance as InnerException
-                                    raise = new InvalidOperationException(message, raise);
-                                }
+                                string message = string.Format("{0}:{1}",
+                                    validationErrors.Entry.Entity.ToString(),
+                                    validationError.ErrorMessage);
+                                // raise a new exception nesting
+                                // the current instance as InnerException
+                                raise = new InvalidOperationException(message, raise);
                             }
-                            throw raise;
                         }
+                        throw raise;
                     }
                 }
             }
         }
-        #endregion
     }
+    #endregion
 }
