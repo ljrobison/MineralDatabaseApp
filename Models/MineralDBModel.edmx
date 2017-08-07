@@ -71,9 +71,9 @@
         </EntityType>
         <EntityContainer Name="MineralDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
-          <EntitySet Name="Suppliers" EntityType="MineralDBModel.Supplier" />
+          <EntitySet Name="Manufacturers" EntityType="MineralDBModel.Manufacturer" />
         </EntityContainer>
-        <EntityType Name="Supplier">
+        <EntityType Name="Manufacturer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -116,8 +116,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="MineralDBModel.Supplier">
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="MineralDBModel.Manufacturer">
               <MappingFragment StoreEntitySet="Suppliers">
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Website" ColumnName="Website" />

@@ -131,7 +131,7 @@
     <Compile Include="Models\Ingredient.cs">
       <DependentUpon>MineralDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Supplier.cs">
+    <Compile Include="Models\Manufacturer.cs">
       <DependentUpon>MineralDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MineralDBModel.Context.cs">

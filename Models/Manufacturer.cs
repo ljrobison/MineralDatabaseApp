@@ -12,7 +12,7 @@ namespace MineralDatabase.App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier
+    public partial class Manufacturer
     {
         public long Id { get; set; }
         public string CompanyName { get; set; }

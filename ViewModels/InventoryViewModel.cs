@@ -24,8 +24,8 @@ namespace MineralDatabase.App.ViewModels
         #region Properties
         MineralDBEntities db = new MineralDBEntities();
 
-        private ObservableCollection<Supplier> _supplierList;
-        public ObservableCollection<Supplier> SupplierList
+        private ObservableCollection<Manufacturer> _supplierList;
+        public ObservableCollection<Manufacturer> SupplierList
         {
             get { return _supplierList; }
             set
@@ -35,8 +35,8 @@ namespace MineralDatabase.App.ViewModels
             }
         }
 
-        private Supplier _selectedSupplier;
-        public Supplier SelectedSupplier
+        private Manufacturer _selectedSupplier;
+        public Manufacturer SelectedSupplier
         {
             get { return _selectedSupplier; }
             set
@@ -93,14 +93,14 @@ namespace MineralDatabase.App.ViewModels
 
         public void GetAllSuppliers()
         {
-            db.Suppliers.Load();
-            SupplierList = db.Suppliers.Local;
+            db.Manufacturers.Load();
+            SupplierList = db.Manufacturers.Local;
         }
 
         public void GetSuppliersNames()
         {
-            db.Suppliers.Load();
-            var result = db.Suppliers.Select(x => x.CompanyName).ToList();
+            db.Manufacturers.Load();
+            var result = db.Manufacturers.Select(x => x.CompanyName).ToList();
             SupplierNameList = result;
         }
         #endregion

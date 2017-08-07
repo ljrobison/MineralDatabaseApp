@@ -21,8 +21,8 @@ namespace MineralDatabase.App.ViewModels
 
         MineralDBEntities db = new MineralDBEntities();
 
-        private ObservableCollection<Supplier> _supplierList;
-        public ObservableCollection<Supplier> SupplierList
+        private ObservableCollection<Manufacturer> _supplierList;
+        public ObservableCollection<Manufacturer> SupplierList
         {
             get { return _supplierList; }
             set
@@ -32,8 +32,8 @@ namespace MineralDatabase.App.ViewModels
             }
         }
 
-        private Supplier _selectedSupplier;
-        public Supplier SelectedSupplier
+        private Manufacturer _selectedSupplier;
+        public Manufacturer SelectedSupplier
         {
             get
             {
@@ -52,8 +52,8 @@ namespace MineralDatabase.App.ViewModels
 
         public void GetAllSuppliers()
         {
-            db.Suppliers.Load();
-            SupplierList = db.Suppliers.Local;
+            db.Manufacturers.Load();
+            SupplierList = db.Manufacturers.Local;
         }
 
 
