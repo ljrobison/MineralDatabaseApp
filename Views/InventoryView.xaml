@@ -43,7 +43,7 @@
                     </StackPanel>
                 </Button>
                 <Separator />
-                <Button x:Name="btnSave" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
+                <Button x:Name="SaveAllChanges" ToolTip="Save all changes." Click="btnSave_Click" VerticalAlignment="Top" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/icons/toolbar/save.png"/>
                         <TextBlock Margin="3,0,0,0"><Run Text="Save"/></TextBlock>
