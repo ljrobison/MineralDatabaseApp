@@ -108,19 +108,20 @@ namespace MineralDatabase.App.ViewModels
             SupplierNameList = result;
         }
 
-        public void SaveAllChanges(Ingredient _i)
+        public void SaveAllChanges()
         {
-
-            if (_i.Id == 0)
+            foreach(Ingredient i in IngredientList)
             {
-                db.Ingredients.Add(_i);
+                if (i.Id == 0)
+                {
+                    db.Ingredients.Add(i);
+                }
+                else
+                {
+                    db.Ingredients.AddOrUpdate(i);
+                }
+                db.SaveChanges();
             }
-            else
-            {
-                db.Ingredients.AddOrUpdate(_i);
-            }
-
-            db.SaveChanges();
         }
     }
     #endregion
