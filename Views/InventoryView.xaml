@@ -73,6 +73,7 @@
                                   DisplayMemberPath="Name" 
                                   SelectedValuePath="Id"
                                   SelectedItem="{Binding SelectedIngredient, Mode=TwoWay}"
+                                  IsEditable="True"
                                   IsSynchronizedWithCurrentItem="True"/>
                         <TextBlock Text="Manufacturer"/>
                         <ComboBox Margin="0,0,0,3"
@@ -101,7 +102,7 @@
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                         <TextBlock Text="Cost" VerticalAlignment="Center" Margin="0,0,5,0" />
                                         <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5"/>
-                                        <TextBlock Text="Volume" VerticalAlignment="Center" Margin="5,0,5,0"/>
+                                        <TextBlock Text="Volume (g)" VerticalAlignment="Center" Margin="5,0,5,0"/>
                                         <wpfToolkit:DecimalUpDown Width="75" Value="0.00" Margin="0,0,0,5"/>
                                     </StackPanel>
                                     <Button Content="Add to Inventory" Width="100"/>
